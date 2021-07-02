@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,29 +20,19 @@
     <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
 </head>
 <body>
-    <form action = 'reserve' method = "POST">
-          {% csrf_token %}
-          <div class="container">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-6 col-xs-12">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-xs-6">
-                            <!-- Name -->
-                            <input type="text" name="name" id="name" required="required" class="form" placeholder="Name" />
-                            <input type="email" name="email" id="email" required="required" class="form" placeholder="Email" />
-                            <input type="text" name="phone" id="phone" required="required" class="form" placeholder="Phone" />
-                           
-                            <input type="number" name="guest" id="guest" required="required" class="form" placeholder="Number of Person" />
-                            <input type="text" name="datepicker" id="datepicker" required="required" class="form" placeholder="Date" />
-                            <input type="time" name="time" id="time" required="required" class="form" placeholder="Time" />
-                        
-                        
-                            <button type="submit" id="submit" name="submit" class="text-center form-btn form-btn">Reserve</button> 
-                        </div>
-                        
+                            <form action="reserve" method="POST">
+                                {% csrf_token %}
+                                {{ form | crispy }}
+                                <button class="boxed-btn3 wow" type="submit">Reserve</button>
+                            </form>
                     </div>
-                </div>
-        
-    </form>
+                </div>      
+            </div>
+        </div>
 </body>
 </html>
