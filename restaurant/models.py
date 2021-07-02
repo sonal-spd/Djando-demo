@@ -13,7 +13,7 @@ class Reserve(models.Model):
     email = models.EmailField()
     phone = models.IntegerField()
     number_of_persons = models.IntegerField()
-    Date = models.DateField()
+    date = models.DateField()
     time = models.TimeField()
 
 

@@ -56,6 +56,11 @@
         <div id="top" class="starter_container bg">
             <div class="follow_container">
                 <div class="col-md-6 col-md-offset-3">
+                    {% if messages %}
+                    {% for message in messages %}
+                    <p {% if message.tags %} class="alert alert-{{message.tags}}" {% endif %}>{{message | escape }}</p>
+                    {% endfor %}
+                    {% endif %}
                     <h2 class="top-title"> Restaurant</h2>
                     <h2 class="white second-title">" Best in the city "</h2>
                     <hr>
